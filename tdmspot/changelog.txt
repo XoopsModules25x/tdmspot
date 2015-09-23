@@ -1,8 +1,16 @@
 ************************************************************
+Version 1.05 | 04-OCT-2010
+Dev: Xoops 2.4.X
+************************************************************
+04/10/2010 - Modification des cat√©gorie.
+           - Modification admin.
+************************************************************
+
+************************************************************
 Version 1.04 | 16-MAR-2010
 Dev: Xoops 2.4.X
 ************************************************************
-16/03/2010 - Debug TXTAREA item & catÈgorie.
+16/03/2010 - Debug TXTAREA item & cat√©gorie.
 16/03/2010 - Debug navigation admin/item.
 16/03/2010 - Debut download.php.
 16/03/2010 - Ajout import smartsection.
@@ -15,10 +23,10 @@ Dev: Xoops 2.4.X
 05/02/2010 - Ajout de .htaccess
 06/02/2010 - Debut .htacces pour les commentaires.
 06/02/2010 - Debug index.php
-06/02/2010 - Ajout option article suivant, prÈcËdent
+06/02/2010 - Ajout option article suivant, pr√©c√®dent
 07/02/2010 - Debug vote en mode seo
 07/02/2010 - Debug Rss en mode seo
-07/02/2010 - Ajout design catÈgorie par Mage.
+07/02/2010 - Ajout design cat√©gorie par Mage.
 ************************************************************
 ************************************************************
 Version 1.02 | 03-JAN-2010

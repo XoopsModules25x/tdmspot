@@ -8,7 +8,7 @@ CREATE TABLE `tdmspot_newblocks` (
   `weight` smallint(5) unsigned NOT NULL DEFAULT '0',
   `visible` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE `tdmspot_page` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -18,7 +18,7 @@ CREATE TABLE `tdmspot_page` (
   `cat` text, 
   `limit` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE `tdmspot_cat` (
   `id` int(11) unsigned NOT NULL auto_increment,
@@ -30,7 +30,7 @@ CREATE TABLE `tdmspot_cat` (
   `weight` int(11) unsigned NOT NULL default '0',
   `display` int(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE `tdmspot_item` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -46,7 +46,7 @@ CREATE TABLE `tdmspot_item` (
   `comments` int(11) unsigned NOT NULL default '0',
   `poster` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE `tdmspot_vote` (
   `vote_id` int(8) unsigned NOT NULL auto_increment,
@@ -55,4 +55,4 @@ CREATE TABLE `tdmspot_vote` (
   `vote_artiste` int(10) unsigned NOT NULL default '0',
   `vote_ip` varchar(20) default NULL,
   PRIMARY KEY  (`vote_id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

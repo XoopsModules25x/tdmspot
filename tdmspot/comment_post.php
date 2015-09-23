@@ -27,17 +27,16 @@
 include_once '../../mainfile.php';
 
 // We verify that the user can post comments **********************************
-if(!isset($xoopsModuleConfig)) {
-	die();
+if (!isset($xoopsModuleConfig)) {
+    die();
 }
 
-if($xoopsModuleConfig['com_rule'] == 0) {	// Comments are deactivate
-	die();
+if ($xoopsModuleConfig['com_rule'] == 0) {  // Comments are deactivate
+    die();
 }
 
-if($xoopsModuleConfig['com_anonpost'] == 0 && !is_object($xoopsUser)) {	// Anonymous users can't post
-	die();
+if ($xoopsModuleConfig['com_anonpost'] == 0 && !is_object($xoopsUser)) {    // Anonymous users can't post
+    die();
 }
 // ****************************************************************************
-include_once XOOPS_ROOT_PATH.'/include/comment_post.php';
-?>
+include_once XOOPS_ROOT_PATH . '/include/comment_post.php';

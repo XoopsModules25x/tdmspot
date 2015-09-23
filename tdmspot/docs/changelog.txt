@@ -1,0 +1,35 @@
+2.00 Beta 1             2015-09-22
+=====================================
+- Converted to XOOPS 2.5.7 Admin GUI (Mamba)
+
+1.05                    2010-10-04
+=====================================
+- Modification des catégorie.
+- Modification admin.
+
+
+1.0                    2010-03-16
+=====================================
+- Debug TXTAREA item & catégorie.
+- Debug navigation admin/item.
+- Debut download.php.
+- Ajout import smartsection.
+
+1.03                    2010-02-06
+=====================================
+- Debug error class
+- Ajout de .htaccess
+- Debut .htacces pour les commentaires.
+- Debug index.php
+- Ajout option article suivant, précèdent
+- Debug vote en mode seo
+- Debug Rss en mode seo
+- Ajout design catégorie par Mage.
+
+
+1.02                    2010-01-03
+=====================================
+- Modifier All admin bug.
+- Modifier ALL.php redirection et header.
+- Ajout import news.
+

@@ -6,13 +6,13 @@
  *
  * Cette licence, contient des limitations
  *
- * 1. Vous devez posséder une permission d'exécuter le logiciel, pour n'importe quel usage.
- * 2. Vous ne devez pas l' étudier ni l'adapter à vos besoins,
+ * 1. Vous devez possÃ©der une permission d'exÃ©cuter le logiciel, pour n'importe quel usage.
+ * 2. Vous ne devez pas l' Ã©tudier ni l'adapter Ã  vos besoins,
  * 3. Vous ne devez le redistribuer ni en faire des copies,
- * 4. Vous n'avez pas la liberté de l'améliorer ni de rendre publiques les modifications
+ * 4. Vous n'avez pas la libertÃ© de l'amÃ©liorer ni de rendre publiques les modifications
  *
  * @license     TDMFR GNU public license
- * @author		TDMFR ; TEAM DEV MODULE 
+ * @author      TDMFR ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
@@ -21,10 +21,10 @@ defined('XOOPS_ROOT_PATH') or die('Restricted access');
 /**
  * Class to facilitate navigation in a multi page document/list
  *
- * @package kernel
- * @subpackage util
- * @author Kazumi Ono <onokazu@xoops.org>
- * @author John Neill <catzwolf@xoops.org>
+ * @package       kernel
+ * @subpackage    util
+ * @author        Kazumi Ono <onokazu@xoops.org>
+ * @author        John Neill <catzwolf@xoops.org>
  * @copyright (c) 2000-2003 The Xoops Project - www.xoops.org
  */
 class tdmspotPageNav
@@ -34,46 +34,49 @@ class tdmspotPageNav
      *
      * @access private
      */
-    var $total;
-    var $perpage;
-    var $current;
-    var $url;
+    public $total;
+    public $perpage;
+    public $current;
+    public $url;
     /**
      * *#@-
      */
-    
+
     /**
      * Constructor
      *
-     * @param int $total_items Total number of items
-     * @param int $items_perpage Number of items per page
-     * @param int $current_start First item on the current page
-     * @param string $start_name Name for "start" or "offset"
-     * @param string $extra_arg Additional arguments to pass in the URL
+     * @param int    $total_items   Total number of items
+     * @param int    $items_perpage Number of items per page
+     * @param int    $current_start First item on the current page
+     * @param string $start_name    Name for "start" or "offset"
+     * @param string $extra_arg     Additional arguments to pass in the URL
      */
-    function tdmspotPageNav($total_items, $items_perpage, $current_start, $start_name = "start", $extra_arg = "")
+    public function __construct($total_items, $items_perpage, $current_start, $start_name = "start", $extra_arg = "")
     {
-	global $cat, $xoopsModuleConfig, $tris;
-        $this->total = intval($total_items);
-        $this->perpage = intval($items_perpage);
-        $this->current = intval($current_start);
-        $this->extra = $extra_arg;
-        if ($extra_arg != '' && (substr($extra_arg, - 5) != '&amp;' || substr($extra_arg, - 1) != '&')) {
+        global $cat, $xoopsModuleConfig, $tris;
+        $this->total   = (int)($total_items);
+        $this->perpage = (int)($items_perpage);
+        $this->current = (int)($current_start);
+        $this->extra   = $extra_arg;
+        if ($extra_arg != '' && (substr($extra_arg, -5) !== '&amp;' || substr($extra_arg, -1) !== '&')) {
             $this->extra = '&amp;' . $extra_arg;
         }
         //$this->url = $_SERVER['PHP_SELF'] . '?' . trim($start_name) . '=';
-		$this->url = tdmspot_seo_genUrl( $xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), $current_start, $items_perpage, $tris );
+        $this->url = tdmspot_seo_genUrl($xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), $current_start, $items_perpage, $tris);
     }
-    
+//    public function tdmspotPageNav($total_items, $items_perpage, $current_start, $start_name = "start", $extra_arg = "")
+//    {
+//        parent::__construct($total_items, $items_perpage, $current_start, $start_name, $extra_arg);
+//    }
     /**
      * Create text navigation
      *
-     * @param integer $offset
+     * @param  integer $offset
      * @return string
      */
-    function renderNav($offset = 4)
+    public function renderNav($offset = 4)
     {
-	global $cat, $xoopsModuleConfig, $tris;
+        global $cat, $xoopsModuleConfig, $tris;
         $ret = '';
         if ($this->total <= $this->perpage) {
             return $ret;
@@ -83,10 +86,10 @@ class tdmspotPageNav
             $ret .= '<div id="xo-pagenav">';
             $prev = $this->current - $this->perpage;
             if ($prev >= 0) {
-                $ret .= '<a class="xo-pagarrow" href="' . tdmspot_seo_genUrl( $xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), $prev, $this->perpage, $tris ) . '"><u>&laquo;</u></a> ';
+                $ret .= '<a class="xo-pagarrow" href="' . tdmspot_seo_genUrl($xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), $prev, $this->perpage, $tris) . '"><u>&laquo;</u></a> ';
             }
-            $counter = 1;
-            $current_page = intval(floor(($this->current + $this->perpage) / $this->perpage));
+            $counter      = 1;
+            $current_page = (int)(floor(($this->current + $this->perpage) / $this->perpage));
             while ($counter <= $total_pages) {
                 if ($counter == $current_page) {
                     $ret .= '<strong class="xo-pagact" >(' . $counter . ')</strong> ';
@@ -94,23 +97,21 @@ class tdmspotPageNav
                     if ($counter == $total_pages && $current_page < $total_pages - $offset) {
                         $ret .= '... ';
                     }
-                    $ret .= '<a class="xo-counterpage" href="' . tdmspot_seo_genUrl( $xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), (($counter - 1) * $this->perpage), $this->perpage, $tris ) . '">' . $counter . '</a> ';
+                    $ret .= '<a class="xo-counterpage" href="' . tdmspot_seo_genUrl($xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), (($counter - 1) * $this->perpage), $this->perpage,
+                            $tris) . '">' . $counter . '</a> ';
                     if ($counter == 1 && $current_page > 1 + $offset) {
                         $ret .= '... ';
                     }
                 }
-                $counter ++;
+                ++$counter;
             }
             $next = $this->current + $this->perpage;
             if ($this->total > $next) {
-                $ret .= '<a class="xo-pagarrow" href="' . tdmspot_seo_genUrl( $xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), $next, $this->perpage, $tris )  . '"><u>&raquo;</u></a> ';
+                $ret .= '<a class="xo-pagarrow" href="' . tdmspot_seo_genUrl($xoopsModuleConfig['tdmspot_seo_cat'], $cat->getVar('id'), $cat->getVar('title'), $next, $this->perpage, $tris) . '"><u>&raquo;</u></a> ';
             }
             $ret .= '</div> ';
         }
+
         return $ret;
     }
-
- 
 }
-
-?>

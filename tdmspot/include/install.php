@@ -6,34 +6,36 @@
  *
  * Cette licence, contient des limitations
  *
- * 1. Vous devez posséder une permission d'exécuter le logiciel, pour n'importe quel usage.
- * 2. Vous ne devez pas l' étudier ni l'adapter à vos besoins,
+ * 1. Vous devez possï¿½der une permission d'exï¿½cuter le logiciel, pour n'importe quel usage.
+ * 2. Vous ne devez pas l' ï¿½tudier ni l'adapter ï¿½ vos besoins,
  * 3. Vous ne devez le redistribuer ni en faire des copies,
- * 4. Vous n'avez pas la liberté de l'améliorer ni de rendre publiques les modifications
+ * 4. Vous n'avez pas la libertï¿½ de l'amï¿½liorer ni de rendre publiques les modifications
  *
  * @license     TDMFR GNU public license
- * @author		TDMFR ; TEAM DEV MODULE 
+ * @author      TDMFR ; TEAM DEV MODULE
  *
  * ****************************************************************************
+ * @param $module
+ * @return bool
  */
 
-function xoops_module_install_spot(&$module) {
-///////////////////////////
-///Creation des fichiers///
-///////////////////////////
-global $xoopsModule, $xoopsConfig, $xoopsDB;
+function xoops_module_install_spot(&$module)
+{
+    ///////////////////////////
+    ///Creation des fichiers///
+    ///////////////////////////
+    global $xoopsModule, $xoopsConfig, $xoopsDB;
 
-$namemodule = "spot";
-  if( file_exists(XOOPS_ROOT_PATH."/modules/".$namemodule."/language/".$xoopsConfig['language']."/admin.php") ) {
-	 include_once(XOOPS_ROOT_PATH."/modules/".$namemodule."/language/".$xoopsConfig['language']."/admin.php");
-  } else {
-	 include_once(XOOPS_ROOT_PATH."/modules/".$namemodule."/language/english/admin.php");
-  }
-		
-//Copie du plug
-	$indexFile = XOOPS_ROOT_PATH."/modules/".$namemodule."/xoops_plugins/function.xoSpot.php";
-	copy($indexFile, XOOPS_ROOT_PATH."/class/smarty/xoops_plugins/function.xoSpot.php");
+    $namemodule = "spot";
+    if (file_exists(XOOPS_ROOT_PATH . "/modules/" . $namemodule . "/language/" . $xoopsConfig['language'] . "/admin.php")) {
+        include_once(XOOPS_ROOT_PATH . "/modules/" . $namemodule . "/language/" . $xoopsConfig['language'] . "/admin.php");
+    } else {
+        include_once(XOOPS_ROOT_PATH . "/modules/" . $namemodule . "/language/english/admin.php");
+    }
 
-	return true;
+    //Copie du plug
+    $indexFile = XOOPS_ROOT_PATH . "/modules/" . $namemodule . "/xoops_plugins/function.xoSpot.php";
+    copy($indexFile, XOOPS_ROOT_PATH . "/class/smarty/xoops_plugins/function.xoSpot.php");
+
+    return true;
 }
-?>

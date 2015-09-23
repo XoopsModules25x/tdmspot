@@ -6,35 +6,71 @@
  *
  * Cette licence, contient des limitations
  *
- * 1. Vous devez posséder une permission d'exécuter le logiciel, pour n'importe quel usage.
- * 2. Vous ne devez pas l' étudier ni l'adapter à vos besoins,
+ * 1. Vous devez possÃ©der une permission d'exÃ©cuter le logiciel, pour n'importe quel usage.
+ * 2. Vous ne devez pas l' Ã©tudier ni l'adapter Ã  vos besoins,
  * 3. Vous ne devez le redistribuer ni en faire des copies,
- * 4. Vous n'avez pas la liberté de l'améliorer ni de rendre publiques les modifications
+ * 4. Vous n'avez pas la libertÃ© de l'amÃ©liorer ni de rendre publiques les modifications
  *
  * @license     TDMFR GNU public license
- * @author		TDMFR ; TEAM DEV MODULE 
+ * @author      TDMFR ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
-$i = 0;
-$adminmenu[$i]['title'] = _MI_SPOT_INDEX;
-$adminmenu[$i]['link'] = "admin/index.php";
-$i++;
-$adminmenu[$i]['title'] = _MI_SPOT_CAT;
-$adminmenu[$i]['link'] = "admin/cat.php";
-$i++;
-$adminmenu[$i]['title'] = _MI_SPOT_ITEM;
-$adminmenu[$i]['link'] = "admin/item.php";
-$i++;
-$adminmenu[$i]['title'] = _MI_SPOT_PAGE;
-$adminmenu[$i]['link'] = "admin/page.php";
-$i++;
-$adminmenu[$i]['title'] = _MI_SPOT_BLOCK;
-$adminmenu[$i]['link'] = "admin/block.php";
-$i++;
-$adminmenu[$i]['title'] = _MI_SPOT_PERMISSIONS;
-$adminmenu[$i]['link'] = "admin/permissions.php";
-$i++;
-$adminmenu[$i]['title'] = _MI_SPOT_ABOUT;
-$adminmenu[$i]['link'] = "admin/about.php";
-?>
+
+$moduleDirName = basename(dirname(__DIR__));
+
+$moduleHandler = xoops_getHandler('module');
+$module        = $moduleHandler->getByDirname($moduleDirName);
+$pathIcon32    = '../../' . $module->getInfo('icons32');
+xoops_loadLanguage('modinfo', $module->dirname());
+
+$xoopsModuleAdminPath = XOOPS_ROOT_PATH . '/' . $module->getInfo('dirmoduleadmin');
+if (!file_exists($fileinc = $xoopsModuleAdminPath . '/language/' . $GLOBALS['xoopsConfig']['language'] . '/' . 'main.php')) {
+    $fileinc = $xoopsModuleAdminPath . '/language/english/main.php';
+}
+include_once $fileinc;
+
+$adminmenu[] = array(
+    'title' => _AM_MODULEADMIN_HOME,
+    'link'  => 'admin/index.php',
+    'icon'  => $pathIcon32 . '/home.png'
+);
+
+$adminmenu[] = array(
+    'title' => _MI_TDMSPOT_INDEX,
+    'link'  => 'admin/main.php',
+    'icon'  => $pathIcon32 . '/manage.png'
+);
+
+$adminmenu[] = array(
+    'title' => _MI_TDMSPOT_CAT,
+    'link'  => 'admin/cat.php',
+    'icon'  => $pathIcon32 . '/manage.png'
+);
+$adminmenu[] = array(
+    'title' => _MI_TDMSPOT_ITEM,
+    'link'  => 'admin/item.php',
+    'icon'  => $pathIcon32 . '/manage.png'
+);
+$adminmenu[] = array(
+    'title' => _MI_TDMSPOT_PAGE,
+    'link'  => 'admin/page.php',
+    'icon'  => $pathIcon32 . '/manage.png'
+);
+$adminmenu[] = array(
+    'title' => _MI_TDMSPOT_BLOCK,
+    'link'  => 'admin/block.php',
+    'icon'  => $pathIcon32 . '/manage.png'
+);
+
+$adminmenu[] = array(
+    'title' => _MI_TDMSPOT_PERMISSIONS,
+    'link'  => 'admin/permissions.php',
+    'icon'  => $pathIcon32 . '/permissions.png'
+);
+
+$adminmenu[] = array(
+    'title' => _AM_MODULEADMIN_ABOUT,
+    'link'  => 'admin/about.php',
+    'icon'  => $pathIcon32 . '/about.png'
+);

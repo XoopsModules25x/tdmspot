@@ -1,39 +1,58 @@
 <?php
-/**
- * ****************************************************************************
- *  - TDMSpot By TDM   - TEAM DEV MODULE FOR XOOPS
- *  - Licence PRO Copyright (c)  (http://www.)
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
  *
- * Cette licence, contient des limitations
- *
- * 1. Vous devez posséder une permission d'exécuter le logiciel, pour n'importe quel usage.
- * 2. Vous ne devez pas l' étudier ni l'adapter à vos besoins,
- * 3. Vous ne devez le redistribuer ni en faire des copies,
- * 4. Vous n'avez pas la liberté de l'améliorer ni de rendre publiques les modifications
- *
- * @license     TDMFR GNU public license
- * @author		TDMFR ; TEAM DEV MODULE 
- *
- * ****************************************************************************
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
-include("../../../mainfile.php");
-include '../../../include/cp_header.php'; 
-include_once(XOOPS_ROOT_PATH."/class/xoopsmodule.php");
 
-if ($xoopsUser) {
-	$xoopsModule = XoopsModule::getByDirname("TDMSpot");
-	if (!$xoopsUser->isAdmin($xoopsModule->mid())) {
-		redirect_header(XOOPS_URL."/",3,_NOPERM);
-		exit();
-	}
-} else {
-	redirect_header(XOOPS_URL."/",3,_NOPERM);
-	exit();
-}
-if (file_exists("../language/".$xoopsConfig['language']."/admin.php")) {
-	include("../language/".$xoopsConfig['language']."/admin.php");
-} else {
-	include("../language/english/admin.php");
+/**
+ * @copyright    The XOOPS Project http://sourceforge.net/projects/xoops/
+ * @license      GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @package
+ * @since
+ * @author       XOOPS Development Team
+ * @version      $Id $
+ */
+
+$moduleDirName = basename(dirname(__DIR__));
+include_once dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
+include_once $GLOBALS['xoops']->path('www/include/cp_functions.php');
+include_once $GLOBALS['xoops']->path('www/include/cp_header.php');
+include_once $GLOBALS['xoops']->path('www/class/xoopsformloader.php');
+
+xoops_load('XoopsRequest');
+
+$moduleDirName = $GLOBALS['xoopsModule']->getVar('dirname');
+
+$pathIcon16           = $GLOBALS['xoops']->url('www/' . $GLOBALS['xoopsModule']->getInfo('sysicons16'));
+$pathIcon32           = $GLOBALS['xoops']->url('www/' . $GLOBALS['xoopsModule']->getInfo('sysicons32'));
+$xoopsModuleAdminPath = $GLOBALS['xoops']->path('www/' . $GLOBALS['xoopsModule']->getInfo('dirmoduleadmin'));
+require_once "{$xoopsModuleAdminPath}/moduleadmin.php";
+
+$myts =& MyTextSanitizer::getInstance();
+if (!isset($GLOBALS['xoopsTpl']) || !($GLOBALS['xoopsTpl'] instanceof XoopsTpl)) {
+    include_once $GLOBALS['xoops']->path("class/template.php");
+    $xoopsTpl = new XoopsTpl();
 }
 
-?>
+//Module specific elements
+//include_once $GLOBALS['xoops']->path("modules/{$moduleDirName}/include/functions.php");
+//include_once $GLOBALS['xoops']->path("modules/{$moduleDirName}/include/config.php");
+
+//Handlers
+//$XXXHandler =& xoops_getModuleHandler('XXX', $moduleDirName);
+
+$GLOBALS['xoopsTpl']->assign('pathIcon16', $pathIcon16);
+$GLOBALS['xoopsTpl']->assign('pathIcon32', $pathIcon32);
+
+// Load language files
+xoops_loadLanguage('admin', $moduleDirName);
+xoops_loadLanguage('modinfo', $moduleDirName);
+xoops_loadLanguage('main', $moduleDirName);
+
+//xoops_cp_header();
+$adminObject = new ModuleAdmin();
