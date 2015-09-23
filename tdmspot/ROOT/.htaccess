@@ -1,0 +1,6 @@
+RewriteEngine   On
+RewriteBase   /24
+RewriteRule     ^publication\/([a-z]+)\/([0-9.]+)\/([0-9.]+)\/([0-9.]+)\/([a-z]+)/  modules/TDMSpot/index.php?seoOp=$1&seoArg=$2&seoStart=$3&seoLimit=$4&seoTris=$5
+RewriteRule     ^publication\/([a-z]+)\/([0-9.]+)/ modules/TDMSpot/index.php?seoOp=$1&seoArg=$2
+RewriteRule     ^publication\/([a-z]+)/ modules/TDMSpot/index.php?seoOp=$1&seoArg=$2
+RewriteRule     ^publication/  modules/TDMSpot/
