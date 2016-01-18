@@ -23,7 +23,7 @@ class TDMSpot_item extends XoopsObject
     // constructor
     public function __construct()
     {
-        $this->XoopsObject();
+        parent::__construct();
         $this->initVar("id", XOBJ_DTYPE_INT, null, false, 10);
         $this->initVar("cat", XOBJ_DTYPE_INT, null, false, 10);
         $this->initVar("title", XOBJ_DTYPE_TXTBOX, null, false);
