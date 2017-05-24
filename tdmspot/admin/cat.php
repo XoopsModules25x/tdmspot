@@ -25,7 +25,7 @@ include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 
 $cat_handler =& xoops_getModuleHandler('tdmspot_cat', 'TDMSpot');
 
-$myts  =& MyTextSanitizer::getInstance();
+$myts  = MyTextSanitizer::getInstance();
 $op    = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 $order = isset($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
 $sort  = isset($_REQUEST['sort']) ? $_REQUEST['sort'] : 'weight';

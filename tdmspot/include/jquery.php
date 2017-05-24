@@ -28,7 +28,7 @@ $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 $item_handler =& xoops_getModuleHandler('tdmspot_item', 'TDMSpot');
 $vote_handler =& xoops_getModuleHandler('tdmspot_vote', 'TDMSpot');
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 $module_handler =& xoops_gethandler('module');
 $xoopsModule    =& $module_handler->getByDirname('TDMSpot');

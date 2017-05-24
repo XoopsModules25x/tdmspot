@@ -53,7 +53,7 @@ $tris   = isset($_REQUEST['tris']) ? $_REQUEST['tris'] : 'indate';
 $start  = isset($_REQUEST['start']) ? $_REQUEST['start'] : 0;
 $itemid = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : 0;
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 // ************************************************************
 // Liste des Categories

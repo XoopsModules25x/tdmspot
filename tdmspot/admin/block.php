@@ -33,7 +33,7 @@ if ($numgenre == 0) {
     redirect_header('page.php', 2, _AM_TDMSPOT_PAGEERROR);
 }
 
-$myts  =& MyTextSanitizer::getInstance();
+$myts  = MyTextSanitizer::getInstance();
 $op    = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 $order = isset($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
 $sort  = isset($_REQUEST['sort']) ? $_REQUEST['sort'] : 'weight';

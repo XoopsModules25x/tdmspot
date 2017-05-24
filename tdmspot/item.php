@@ -24,7 +24,7 @@ include_once(XOOPS_ROOT_PATH . "/class/tree.php");
 include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
 include_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->getVar("dirname") . '/include/common.php';
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 //load class
 $item_handler =& xoops_getModuleHandler('tdmspot_item', 'TDMSpot');

@@ -21,7 +21,7 @@ include_once XOOPS_ROOT_PATH . '/header.php';
 include_once(XOOPS_ROOT_PATH . "/class/tree.php");
 include_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->getVar("dirname") . '/include/common.php';
 
-$myts          =& MyTextSanitizer::getInstance();
+$myts          = MyTextSanitizer::getInstance();
 $gperm_handler =& xoops_gethandler('groupperm');
 //permission
 if (is_object($xoopsUser)) {
