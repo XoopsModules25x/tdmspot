@@ -28,7 +28,7 @@ class TDMSpot_newblocks extends XoopsObject
     // constructor
     public function __construct()
     {
-        $this->XoopsObject();
+        parent::__construct();
         $this->initVar("id", XOBJ_DTYPE_INT, null, false, 10);
         $this->initVar("bid", XOBJ_DTYPE_INT, null, false, 10);
         $this->initVar("pid", XOBJ_DTYPE_INT, null, false, 10);
