@@ -35,7 +35,7 @@ xoops_cp_header();
 $page_handler  =& xoops_getModuleHandler('tdmspot_page', 'TDMSpot');
 $block_handler =& xoops_getModuleHandler('tdmspot_newblocks', 'TDMSpot');
 
-$myts          =& MyTextSanitizer::getInstance();
+$myts          = MyTextSanitizer::getInstance();
 $op            = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 $tdmspot_style = isset($_REQUEST['tdmspot_style']) ? $_REQUEST['tdmspot_style'] : 'cupertino';
 

@@ -20,7 +20,7 @@ include_once '../../mainfile.php';
 include_once XOOPS_ROOT_PATH . '/header.php';
 include_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->getVar("dirname") . '/include/common.php';
 
-$myts         =& MyTextSanitizer::getInstance();
+$myts         = MyTextSanitizer::getInstance();
 $item_handler =& xoops_getModuleHandler('tdmspot_item', 'TDMSpot');
 
 //perm

@@ -23,7 +23,7 @@ if (!defined('XOOPS_ROOT_PATH')) {
 function tdmspot_header()
 {
     global $xoopsConfig, $xoopsModule, $xoTheme, $xoopsTpl;
-    $myts =& MyTextSanitizer::getInstance();
+    $myts = MyTextSanitizer::getInstance();
 
     if (isset($xoTheme) && is_object($xoTheme)) {
         $xoTheme->addScript(XOOPS_URL . "/modules/" . $xoopsModule->dirname() . "/js/jquery-1.3.2.min.js");
@@ -177,7 +177,7 @@ function tdm_switchselect($text, $form_sort, $url)
 
 function tdmspot_keywords($content)
 {
-    $myts =& MyTextSanitizer::getInstance();
+    $myts = MyTextSanitizer::getInstance();
 
     $tmp = array();
     // Search for the "Minimum keyword length"
@@ -185,7 +185,7 @@ function tdmspot_keywords($content)
     $xoopsConfigSearch =& $config_handler->getConfigsByCat(XOOPS_CONF_SEARCH);
     $limit             = $xoopsConfigSearch['keyword_min'];
 
-    $myts            =& MyTextSanitizer::getInstance();
+    $myts            = MyTextSanitizer::getInstance();
     $content         = str_replace("<br />", " ", $content);
     $content         = $myts->undoHtmlSpecialChars($content);
     $content         = strip_tags($content);
@@ -213,7 +213,7 @@ function tdmspot_keywords($content)
 
 function tdmspot_desc($content)
 {
-    $myts =& MyTextSanitizer::getInstance();
+    $myts = MyTextSanitizer::getInstance();
 
     $title = $myts->displayTarea((strlen($content) > 128 ? substr($content, 0, (128)) : $content));
 

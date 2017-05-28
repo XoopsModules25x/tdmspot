@@ -26,7 +26,7 @@ include_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->getVar("dirname") . '
 $page_handler  =& xoops_getModuleHandler('tdmspot_page', 'TDMSpot');
 $block_handler =& xoops_getModuleHandler('tdmspot_newblocks', 'TDMSpot');
 
-$myts  =& MyTextSanitizer::getInstance();
+$myts  = MyTextSanitizer::getInstance();
 $op    = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 $order = isset($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
 $sort  = isset($_REQUEST['sort']) ? $_REQUEST['sort'] : 'weight';

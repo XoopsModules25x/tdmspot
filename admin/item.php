@@ -32,7 +32,7 @@ if ($numcat == 0) {
     redirect_header('cat.php', 2, _AM_TDMSPOT_CATERROR);
 }
 
-$myts    =& MyTextSanitizer::getInstance();
+$myts    = MyTextSanitizer::getInstance();
 $op      = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 $display = isset($_REQUEST['display']) ? $_REQUEST['display'] : 1;
 $indate  = isset($_REQUEST['indate']) ? $_REQUEST['indate'] : 0;

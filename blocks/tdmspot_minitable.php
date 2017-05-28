@@ -40,7 +40,7 @@ function b_tdmspot($options)
     $type_block   = $options[0];
     $nb_document  = $options[1];
     $lenght_title = $options[2];
-    $myts         =& MyTextSanitizer::getInstance();
+    $myts         = MyTextSanitizer::getInstance();
     $item_handler =& xoops_getModuleHandler('tdmspot_item', 'TDMSpot');
 
     $criteria = new CriteriaCompo();

@@ -83,7 +83,7 @@ function tdmspot_seo_title($title = '', $withExt = true)
 
 function tdmspot_seo_genUrl($op, $id, $short_url = "", $start = null, $limit = false, $tris = false)
 {
-    //$publisher =& PublisherPublisher::getInstance();
+    //$publisher = PublisherPublisher::getInstance();
 
     $module_handler =& xoops_gethandler('module');
     $xoopsModule    =& $module_handler->getByDirname('TDMSpot');
